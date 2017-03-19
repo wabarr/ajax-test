@@ -1,0 +1,23 @@
+<html>
+<head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script></head>
+<body>
+	<ul id="content"></ul>
+</body>
+<footer>
+	<script>
+		$( document ).ready(function() {
+			var objects;
+			$.ajax({
+			    url: "/objects.json/",
+				async: false,
+			    success: function(data) {
+			        objects = data;
+			    }
+			});
+			$.each(objects, function(index, value){
+				$("#content").append("<li>" + value + "</li>")
+			});
+		});
+	</script>
+</footer>
+</html>
